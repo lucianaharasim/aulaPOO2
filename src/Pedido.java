@@ -14,6 +14,10 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    public int getId(){
+        return idPedido;
+    }
+
     public void adicionarItem(ItensPedido item){
         itens.add(item);
     }
