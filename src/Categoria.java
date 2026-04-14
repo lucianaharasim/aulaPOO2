@@ -5,6 +5,9 @@ public class Categoria {
         this.nomeCategoria = nomeCategoria;
     }
     public String getNomeCategoria() {
+
         return nomeCategoria;
     }
 }
+
+

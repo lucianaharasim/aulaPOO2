@@ -12,4 +12,12 @@ public class Cliente extends Usuarios {
         return super.toString() +
                 ", Endereco:" + endereco;
     }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 }
