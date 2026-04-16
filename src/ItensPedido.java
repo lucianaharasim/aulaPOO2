@@ -17,7 +17,7 @@ public class ItensPedido {
         return precoUnitario * quantidade;
     }
     public int getIdItensPedido(){
-        return ItensPedido;
+        return idItensPedido;
     }
 
     public void setIdItensPedido(int idItensPedido) {
