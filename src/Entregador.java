@@ -10,4 +10,10 @@ public class Entregador extends Usuarios {
         return super.toString() +
                 "Disponivel:" + (disponivel ? "Sim": "Nao");
     }
+    public boolean getDisponivel(){
+        return disponivel;
+    }
+    public void setDisponivel(boolean disponivel ){
+        this.disponivel = disponivel;
+    }
 }

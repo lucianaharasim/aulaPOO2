@@ -16,5 +16,15 @@ public class ItensPedido {
     public double subTotal(){
         return precoUnitario * quantidade;
     }
+    public int getIdItensPedido(){
+        return ItensPedido;
+    }
 
+    public void setIdItensPedido(int idItensPedido) {
+        this.idItensPedido = idItensPedido;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
 }
