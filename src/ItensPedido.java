@@ -4,11 +4,12 @@ public class ItensPedido {
     protected int quantidade;
     protected double precoUnitario;
 
+    // Construtor
     public ItensPedido(int idItensPedido,Produto produto, int quantidade){
         this.idItensPedido = idItensPedido;
         this.produto = produto;
         this.quantidade = quantidade;
-        this.precoUnitario = produto.getPreco();
+        this.precoUnitario = produto.getPreco();           // objeto produto já tem preco usa o encapsulamento
 
 
     }

@@ -20,4 +20,16 @@ public class Restaurante {
     public List<Produto>getCardapio(){
         return cardapio;
     }
+    public void listarCardapio(){
+        if (cardapio.isEmpty()){
+            System.out.println("O cardápio está vazio!");
+        }else {
+            System.out.println("\n ************CARDÁPIO DO RESTAURANTE"+ nomeRestaurante.toUpperCase()+ "************");
+
+            for(int i = 0; i < cardapio.size(); i++){
+                Produto produto = cardapio.get(i);
+                System.out.println(((i + 1)+ "-"+ produto));
+            }
+        }
+    }
 }

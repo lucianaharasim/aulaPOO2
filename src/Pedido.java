@@ -3,23 +3,52 @@ import java.util.List;
 
 public class Pedido {
     private int idPedido;
+    private String status;
 
+    //Agregação
     private Cliente cliente;
     private Entregador entregador;
+    private Restaurante restaurante;
 
+    //Abstração
+    private Pagamento pagamento;
+    private Entrega entrega;
+
+    // Composição]
     private List<ItensPedido>itens= new ArrayList<>();
 
+    // Construtor
     public Pedido(int idPedido,Cliente cliente){
         this.idPedido = idPedido;
         this.cliente = cliente;
+        this.status="EM ABERTO";
+
     }
+
 
     public int getId(){
         return idPedido;
     }
+    public String getStatus(){
+        return status;
+    }
+    public Cliente getCliente(){
+        return cliente;
+    }
+    public void adicionarItem(Produto produto, int quantidade){
+        if(!status.equals("EM ABERTO")){
+            System.out.println(("Não é possível incluir intens em um pedido que não esta em aberto"));
+        } else {
+                int idItensPedido = 1;
 
-    public void adicionarItem(ItensPedido item){
-        itens.add(item);
+                if(itens.isEmpty()){
+                    idItensPedido= itens.size()+1;
+                }
+            ItensPedido item = new ItensPedido(idItensPedido,produto,quantidade);
+            itens.add(item);
+
+            System.out.println(("Item adicionado no pedido!"));
+        }
     }
     public double calcularTotal(){
         double total = 0;
