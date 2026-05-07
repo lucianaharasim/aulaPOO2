@@ -16,4 +16,8 @@ public class Entregador extends Usuarios {
     public void setDisponivel(boolean disponivel ){
         this.disponivel = disponivel;
     }
+
+    public String getNome(){
+        return super.getNome();
+    }
 }

@@ -26,4 +26,7 @@ public class Usuarios {
                 ",Telefone:" + telefone +
                 ",Tipo Usuario:" + tipoUsuario ;
     }
+    public String getNome(){
+        return nome;
+    }
 }

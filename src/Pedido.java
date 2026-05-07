@@ -50,6 +50,34 @@ public class Pedido {
             System.out.println(("Item adicionado no pedido!"));
         }
     }
+    public void removerItem(String nomeProduto){
+        if(!status.equals("EM ABERTO")){
+            System.out.println("Não é possível retirar itens pois o pedido não está aberto!");
+        }else{
+            boolean removido = itens.removeIf(item ->
+                    item.getProduto().getNomeProduto().equalsIgnoreCase(nomeProduto));
+            if (removido){
+                System.out.println("Item" + nomeProduto + "removido do pedido");
+            }else {
+                System.out.println("Não foi encontrado no pedido o produto" + nomeProduto);
+            }
+
+        }
+    }
+
+    public void definirPagamento(Pagamento pagamento){
+        this.pagamento = pagamento;
+        System.out.println("Pagamento definido:" + pagamento.getPagamento());
+    }
+    public void  definirEntrega(Entrega entrega){
+        this.entrega = entrega;
+        System.out.println("Entrega definida:" + entrega.getClass().getSimpleName());
+    }
+    public void definirEntregador(Entregador entregador){
+        this.entregador = entregador;
+        System.out.println(("Entregador definido:" + entregador.getNome()));
+    }
+
     public double calcularTotal(){
         double total = 0;
         for (ItensPedido item : itens){
