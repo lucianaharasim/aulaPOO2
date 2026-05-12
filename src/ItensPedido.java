@@ -1,16 +1,20 @@
 public class ItensPedido {
     private int idItensPedido;
-    protected Produto produto;
+    public Produto produto;
     protected int quantidade;
     protected double precoUnitario;
 
     // Construtor
-    public ItensPedido(int idItensPedido,Produto produto, int quantidade){
+    public ItensPedido(int idItensPedido, Produto produto, int quantidade){
         this.idItensPedido = idItensPedido;
         this.produto = produto;
         this.quantidade = quantidade;
         this.precoUnitario = produto.getPreco();           // objeto produto já tem preco usa o encapsulamento
 
+
+    }
+
+    public int getQuantidade(){ return quantidade;
 
     }
 

@@ -11,6 +11,7 @@ public class Cliente extends Usuarios {
     public String toString() {
         return super.toString() +
                 ", Endereco:" + endereco;
+
     }
 
     public String getEndereco() {

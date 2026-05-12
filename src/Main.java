@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class  Main {
     private static final Scanner sc = new Scanner(System.in);
     private static final List<Cliente> clientes = new ArrayList<>();
     private static int idCliente = 1;
