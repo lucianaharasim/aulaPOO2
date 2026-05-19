@@ -8,7 +8,7 @@ public class Restaurante {
 
     private List<Produto> cardapio = new ArrayList<>();
 
-    public Restaurante(String nomeRestaurante,String enderecoRestaurante){
+    public Restaurante(int idRestaurante, String nomeRestaurante,String enderecoRestaurante){
         this.idRestaurante = idRestaurante;
         this.nomeRestaurante = nomeRestaurante;
         this.enderecoRestaurante = enderecoRestaurante;
@@ -31,5 +31,9 @@ public class Restaurante {
                 System.out.println(((i + 1)+ "-"+ produto));
             }
         }
+    }
+
+    public String getNomeRestaurante(){
+        return nomeRestaurante;
     }
 }

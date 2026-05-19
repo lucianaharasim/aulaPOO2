@@ -11,9 +11,9 @@ public class  Main {
     private static final List<Entregador> entregadores = new ArrayList<>();
     private static final List<Pedido> pedidos = new ArrayList<>();
     private static final List<Restaurante> restaurantes = new ArrayList<>();
+    private static final List<Produto> produtos = new ArrayList<>();
 
     private static int idCliente = 1;
-
 
 
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class  Main {
             System.out.println("1 - Area do ADM");
             System.out.println("2 - Area do Cliente");
             System.out.println("3 - Area do Entregador");
-            System.out.println(("0 -Sair"));
+            System.out.println(("0 - Sair"));
             System.out.println("Escolha uma opção");
 
             int opcao = Integer.parseInt(sc.nextLine());
@@ -49,7 +49,7 @@ public class  Main {
                     System.out.println("Encerrando o sistema...");
                     break;
 
-                    default:
+                default:
                     System.out.println("Opcao invalida!");
 
 
@@ -57,13 +57,14 @@ public class  Main {
 
         }
 
-    sc.close();;
+        sc.close();
+        ;
 
     }
 
-    public static void  menuAdm(){
-        boolen voltar = false;
-        while (!voltar){
+    public static void menuAdm() {
+        boolean voltar = false;
+        while (!voltar) {
             System.out.println("\n ----------------------");
             System.out.println(" Area do Administrador ");
             System.out.println("----------------------");
@@ -77,8 +78,8 @@ public class  Main {
             System.out.println("0 - Voltar ");
             System.out.println("Escolha uma opção ");
 
-            int opcao = Integer.parseInt(sc. nextLine());
-            switch (opcao){
+            int opcao = Integer.parseInt(sc.nextLine());
+            switch (opcao) {
 
                 case 1:
                     cadastrarCategoria();
@@ -110,16 +111,82 @@ public class  Main {
 
         }
     }
-    public static void cadastrarCtaegoria()
-    {
+
+    public static void cadastrarCategoria() {
 
         System.out.println("Digite o nome da categoria");
-        String nome = sc. nextLine();
+        String nome = sc.nextLine();
         Categoria categoria = new Categoria(nome);
 
         categorias.add(categoria);
         System.out.println("Categoria adicionada!");
         System.out.println("Categoria criada: " + categoria.getNomeCategoria());
+
+    }
+
+    public static void cadastrarRestaurante() {
+
+        System.out.println("Digite o nome do restaurante");
+        String nomeRestaurante = sc.nextLine();
+        System.out.println("Digite o endereco do restaurante");
+        String endereco = sc.nextLine();
+
+        int id = restaurantes.size()+1;
+        Restaurante restaurante = new Restaurante(id,nomeRestaurante, endereco);
+
+        restaurantes.add(restaurante);
+        System.out.println("Restaurante adicionado!");
+        System.out.println("Restaurante criado: " + restaurante.getNomeRestaurante());
+    }
+        private static void cadastrarProdutoNoRestaurante{
+            if(restaurantes.isEmpty()){
+                System.out.println("Cadastre primeiro ao menos 1( um) restaurante!");
+                return;
+
+            }
+            System.out.println("\nEscolha o restaurante:");
+            for(int i=0; i< restaurantes.size(); i++){
+                System.out.println( ( i+1 )+"-" restaurantes.get(i));
+            }
+            System.out.println("Opção:");
+            int indiceRestaurante = Integer.parseInt(sc.nextLine());
+            if (indiceRestaurante<= || indiceRestaurante>= restaurantes.size()){
+                System.out.println(("restaurante Inválido!"));
+                return;
+            }
+            Restaurante restaurante = restaurantes.get((indiceRestaurante -1);
+
+            System.out.println(("Digite  o nome do produto"));
+            String nomeProd = sc.nextLine();
+
+            System.out.println(" Digite a descrição do produto");
+            String descProd=sc.nextLine();
+
+            System.out.println(" Digite o preço do produto");
+            double precoProd = Double.parseDouble(sc.nextLine().replace(",","."));
+
+            System.out.println(" Digite o estoque do prouto:");
+            int estoqueProd = Integer.parseInt(sc.nextLine());
+
+            System.out.println(("\nEscolha a categoria do produto"));
+            for (int i = 0; i< categorias.size(); i ++){
+                System.out.println( ( i+1 )+"-" categorias.get(i));
+
+            }
+            System.out.println("Opção:");
+            int indiceCategoria = Integer.parseInt((sc.nextLine()));
+
+            if (indiceCategoria <=0|| indiceCategoria >= categorias.size ()){
+                System.out.println(("Categoria inválida!"));
+                return;
+            }
+            Categoria categoria = categorias.get((indiceCategoria - 1));
+            int idProduto = produtos.size() + 1;
+
+            Produto produto = new  Produto(idProduto,nomeProd,descProd,precoProd,categoria,estoqueProd);
+            restaurante.adicionarProduto(produto);
+            produtos.add(produto);
+            System.out.println("Produto cadastrado no restaurante!");
 
     }
 
