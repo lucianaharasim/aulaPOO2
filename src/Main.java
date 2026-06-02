@@ -148,56 +148,119 @@ public class  Main {
         System.out.println("Restaurante adicionado!");
         System.out.println("Restaurante criado: " + restaurante.getNomeRestaurante());
     }
-        private static void cadastrarProdutoNoRestaurante{
-            if(restaurantes.isEmpty()){
-                System.out.println("Cadastre primeiro ao menos 1( um) restaurante!");
-                return;
 
-            }
-            System.out.println("\nEscolha o restaurante:");
-            for(int i=0; i< restaurantes.size(); i++){
-                System.out.println( ( i+1 )+"-" restaurantes.get(i));
-            }
-            System.out.println("Opção:");
-            int indiceRestaurante = Integer.parseInt(sc.nextLine());
-            if (indiceRestaurante<= || indiceRestaurante>= restaurantes.size()){
-                System.out.println(("restaurante Inválido!"));
-                return;
-            }
-            Restaurante restaurante = restaurantes.get((indiceRestaurante -1);
+    private static void cadastrarProdutoNoRestaurante(){
+        if(restaurantes.isEmpty()){
+            System.out.println("Cadastre primeiro ao menos 1( um) restaurante!");
+            return;
 
-            System.out.println(("Digite  o nome do produto"));
-            String nomeProd = sc.nextLine();
+        }
+        System.out.println("\nEscolha o restaurante:");
+        for(int i=0; i< restaurantes.size(); i++){
+            System.out.println( ( i+1 )+"-" restaurantes.get(i));
+        }
+        System.out.println("Opção:");
+        int indiceRestaurante = Integer.parseInt(sc.nextLine());
+        if (indiceRestaurante<= || indiceRestaurante>= restaurantes.size()){
+            System.out.println(("restaurante Inválido!"));
+            return;
+        }
+        Restaurante restaurante = restaurantes.get((indiceRestaurante -1);
 
-            System.out.println(" Digite a descrição do produto");
-            String descProd=sc.nextLine();
+        System.out.println(("Digite  o nome do produto"));
+        String nomeProd = sc.nextLine();
 
-            System.out.println(" Digite o preço do produto");
-            double precoProd = Double.parseDouble(sc.nextLine().replace(",","."));
+        System.out.println(" Digite a descrição do produto");
+        String descProd=sc.nextLine();
 
-            System.out.println(" Digite o estoque do prouto:");
-            int estoqueProd = Integer.parseInt(sc.nextLine());
+        System.out.println(" Digite o preço do produto");
+        double precoProd = Double.parseDouble(sc.nextLine().replace(",","."));
 
-            System.out.println(("\nEscolha a categoria do produto"));
-            for (int i = 0; i< categorias.size(); i ++){
-                System.out.println( ( i+1 )+"-" categorias.get(i));
+        System.out.println(" Digite o estoque do prouto:");
+        int estoqueProd = Integer.parseInt(sc.nextLine());
 
-            }
-            System.out.println("Opção:");
-            int indiceCategoria = Integer.parseInt((sc.nextLine()));
+        System.out.println(("\nEscolha a categoria do produto"));
+        for (int i = 0; i< categorias.size(); i ++){
+            System.out.println( ( i+1 )+"-" categorias.get(i));
 
-            if (indiceCategoria <=0|| indiceCategoria >= categorias.size ()){
-                System.out.println(("Categoria inválida!"));
-                return;
-            }
-            Categoria categoria = categorias.get((indiceCategoria - 1));
-            int idProduto = produtos.size() + 1;
+        }
+        System.out.println("Opção:");
+        int indiceCategoria = Integer.parseInt((sc.nextLine()));
 
-            Produto produto = new  Produto(idProduto,nomeProd,descProd,precoProd,categoria,estoqueProd);
-            restaurante.adicionarProduto(produto);
-            produtos.add(produto);
-            System.out.println("Produto cadastrado no restaurante!");
+        if (indiceCategoria <=0|| indiceCategoria >= categorias.size ()){
+            System.out.println(("Categoria inválida!"));
+            return;
+        }
+        Categoria categoria = categorias.get((indiceCategoria - 1));
+        int idProduto = produtos.size() + 1;
+
+        Produto produto = new  Produto(idProduto,nomeProd,descProd,precoProd,categoria,estoqueProd);
+        restaurante.adicionarProduto(produto);
+        produtos.add(produto);
+        System.out.println("Produto cadastrado no restaurante!");
 
     }
 
+    public static void cadastrarEntregador()
+    {
+        System.out.println("Digite o nome do entregador");
+        String nome = sc.nextLine();
+        int id = entregadores.size()+1;
+
+        System.out.println("Digite o CPF do entregador");
+        String CPF = sc.nextLine();
+
+        System.out.println("Digite o email do entregador");
+        String email = sc.nextLine();
+
+        System.out.println("Digite a senha do entregador");
+        String senha = sc.nextLine();
+
+        System.out.println("Digite o telefone do entregador");
+        String telefone = sc.nextLine();
+
+        System.out.println("Digite o tipoUsuario do entregador");
+        String tipoUsuario = sc.nextLine();
+
+
+        Entregador entregador = new Entregador( id,nome,CPF,email,senha,telefone,
+                tipoUsuario);// construtor//
+
+        entregadores.add(entregador);
+        System.out.println("Entregador adicionado!");
+        System.out.println("Entregador criado: " + entregador.getNome());
+    }
+
+    private static void listarRestaurante(){
+        if(restaurantes.isEmpty()){
+            System.out.println("Liste primeiro ao menos 1( um) restaurante!");
+            return;
+        }
+        System.out.println("\nListe o restaurante:");
+        for(int i=0; i< restaurantes.size(); i++){
+            System.out.println( ( i+1 )+"-" restaurantes.get(i));
+
+        }
+    }
+    private static void listarEntregador() {
+        if (entregadores.isEmpty()) {
+            System.out.println("Liste primeiro ao menos 1( um) entregador!");
+            return;
+        }
+        System.out.println("\nListe o entregador:");
+        for (int i = 0; i < entregadores.size(); i++) {
+            System.out.println((i + 1) + "-"entregadores.get(i));
+        }
+    }
+
+    private static void listarPedidos() {
+        if (pedidos.isEmpty()) {
+            System.out.println("Liste primeiro ao menos 1( um) pedido!");
+            return;
+        }
+        System.out.println("\nListe o pedido:");
+        for (int i = 0; i < pedidos.size(); i++) {
+            System.out.println((i + 1) + "-"pedidos.get(i));
+        }
+    }
 }

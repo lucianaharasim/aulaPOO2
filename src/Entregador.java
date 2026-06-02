@@ -1,8 +1,8 @@
 public class Entregador extends Usuarios {
     public boolean disponivel;
-    public Entregador(int idUsuario, String nome, String CPF, String email, String senha, String telefone, String tipoUsuario, boolean disponivel) {
+    public Entregador(int idUsuario, String nome, String CPF, String email, String senha, String telefone, String tipoUsuario) {
         super(idUsuario, nome, CPF, email, senha, telefone, tipoUsuario);
-        this.disponivel = disponivel;
+        this.disponivel = true;
     }
 
     @Override
