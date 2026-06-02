@@ -130,7 +130,7 @@ public class  Main {
         }finally{
             System.out.println("Finalizado o cadastro de categorias!");
         }
-        }
+
 
     }
 
