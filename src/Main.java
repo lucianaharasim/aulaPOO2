@@ -113,14 +113,24 @@ public class  Main {
     }
 
     public static void cadastrarCategoria() {
+        try {
+            System.out.println("Digite o nome da categoria");
+            String nome = sc.nextLine();
 
-        System.out.println("Digite o nome da categoria");
-        String nome = sc.nextLine();
-        Categoria categoria = new Categoria(nome);
+            if (nome.isBlank()) {
+                throw new IllegalAccessException("O nome da categoria é obrigatória");
+            }
+            Categoria categoria = new Categoria(nome);
+            categorias.add(categoria);
+            System.out.println("Categoria adicionada!");
+            System.out.println("Categoria criada: " + categoria.getNomeCategoria());
 
-        categorias.add(categoria);
-        System.out.println("Categoria adicionada!");
-        System.out.println("Categoria criada: " + categoria.getNomeCategoria());
+        } catch (IllegalAccessException e){
+            System.out.println("Erro ao cadastrar categoria" + e.getMessage());
+        }finally{
+            System.out.println("Finalizado o cadastro de categorias!");
+        }
+        }
 
     }
 
